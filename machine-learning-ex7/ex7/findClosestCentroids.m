@@ -21,7 +21,19 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
+for i=1:size(X,1) 
+  x = X(i,:);
+  dtmp = 999;
+  for j = 1:K
+    u = centroids(j,:);
+    
+    d = norm(x-u, 2);
+    if d <= dtmp
+      dtmp = d;
+      idx(i) = j;
+    endif
+  endfor 
+endfor
 
 
 
